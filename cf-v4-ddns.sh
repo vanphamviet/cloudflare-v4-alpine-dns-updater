@@ -7,12 +7,16 @@ set -o pipefail
 # Automatically update your CloudFlare DNS record to the IP, Dynamic DNS
 # Can retrieve cloudflare Domain id and list zone's, because, lazy
 
-# Place at:
-# curl https://raw.githubusercontent.com/yulewang/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh > /usr/local/bin/cf-ddns.sh && chmod +x /usr/local/bin/cf-ddns.sh
+# Download the file and move to /usr/local/bin folder:
+# doas wget https://raw.githubusercontent.com/vanphamviet/cloudflare-v4-alpine-dns-updater/main/cf-v4-ddns.sh 
+# doas mv cf-v4-ddns.sh /usr/local/bin/cf-v4-ddns.sh 
+# cd /usr/local/bin
+# doas chmod +x ./cf-v4-ddns.sh
+
 # run `crontab -e` and add next line:
-# */1 * * * * /usr/local/bin/cf-ddns.sh >/dev/null 2>&1
+# */1 * * * * /usr/local/bin/cf-v4-ddns.sh >/dev/null 2>&1
 # or you need log:
-# */1 * * * * /usr/local/bin/cf-ddns.sh >> /var/log/cf-ddns.log 2>&1
+# */1 * * * * /usr/local/bin/cf-v4-ddns.sh >> /var/log/cf-v4-ddns.log 2>&1
 
 
 # Usage:
@@ -28,13 +32,13 @@ set -o pipefail
 
 # API key, see https://www.cloudflare.com/a/account/my-account,
 # incorrect api-key results in E_UNAUTH error
-CFKEY=ikqyyI6RNlO10OPt4gidlFb9icYW-rmqpZAqUzTL
+CFKEY=
 
 # Zone name, eg: example.com
-CFZONE_NAME=thanglau.com
+CFZONE_NAME=
 
 # Hostname to update, eg: homeserver.example.com
-CFRECORD_NAME=thanglau.com
+CFRECORD_NAME=
 
 # Record type, A(IPv4)|AAAA(IPv6), default IPv4
 CFRECORD_TYPE=A
