@@ -1,5 +1,13 @@
 # Cloudflare DNS Updater Script for Alpine Linux
-An updater for Alpine Linux. This updater can update the DNS record. It was folked from [yulewang/cloudflare-api-v4-ddns](https://github.com/yulewang/cloudflare-api-v4-ddns)
+An updater for Alpine Linux. This updater can update the DNS record. It was inspired of [yulewang/cloudflare-api-v4-ddns](https://github.com/yulewang/cloudflare-api-v4-ddns)
+--
 You should install:
-- bash: apk add bash (not default on Alpine Linux)
-- perl: apk add perl (for replacing 'grep' with -Po option)
+
+- bash #(for running sh file, bash is not default on Alpine Linux):
+```
+  apk add bash 
+```
+- perl #(for replacing 'grep' with -Po option):
+```
+  apk add perl
+```
